@@ -1,4 +1,4 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%
+FROM balenalib/raspberrypi3
 
 COPY ./grafana.ini /usr/share/grafana/conf/custom.ini
 COPY ./provisioning /usr/src/app/provisioning
@@ -11,7 +11,7 @@ RUN install_packages \
       ucf \
       jq
 
-RUN chmod +x /usr/src/app/download.sh && /usr/src/app/download.sh "%%BALENA_MACHINE_NAME%%"
+RUN chmod +x /usr/src/app/download.sh && /usr/src/app/download.sh "raspberrypi3"
 
 RUN dpkg -i /tmp/grafana.deb && rm /tmp/grafana.deb
 
