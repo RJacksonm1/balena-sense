@@ -1,6 +1,7 @@
 version: '2'
 volumes:
-    sense-data:
+  sense-data:
+    driver: local
 services:
   influxdb:
     restart: always
